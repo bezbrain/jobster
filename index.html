@@ -4,167 +4,71 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <!-- CSS Section -->
-    <link rel="stylesheet" href="./styles/header.css" />
-    <link rel="stylesheet" href="./styles/sidebarAndStat.css" />
-    <link rel="stylesheet" href="./styles/alljobs.css" />
-    <link rel="stylesheet" href="./styles/addjob.css" />
-    <script src="./all.js"></script>
+    <link rel="stylesheet" href="./styles/landing-page.css" />
+    <!-- <script src="./all.js"></script> -->
     <title>Jobster</title>
   </head>
   <body>
     <!-- ======== -->
-    <!-- Header Section -->
-    <!-- ========-->
-    <header>
-      <nav>
-        <h1><span>J</span> Jobster</h1>
-        <i class="fa-sharp fa-solid fa-bars-staggered"></i>
-      </nav>
-      <p>Dashboard</p>
-      <div class="head-btn-con">
-        <button>
-          <i class="fa-solid fa-user"></i>Sample<i
-            class="fa-solid fa-caret-down"
-          ></i>
-        </button>
-      </div>
-    </header>
-    <!-- End of Header Section -->
-
+    <!-- Login and Register Page -->
     <!-- ======== -->
-    <!-- Side Bar Section and Other Sections -->
-    <!-- ======== -->
-    <main>
-      <!-- Side Bar Section -->
-      <aside>
-        <ul>
-          <li><i class="fa-solid fa-chart-column"></i>Stats</li>
-          <li>
-            <i class="fa-sharp fa-solid fa-magnifying-glass-dollar"></i>All Jobs
-          </li>
-          <li><i class="fa-solid fa-person-circle-plus"></i>Add Jobs</li>
-          <li><i class="fa-sharp fa-solid fa-address-card"></i>Profile</li>
-        </ul>
-      </aside>
-
-      <!-- ======== -->
-      <!-- Other Sections -->
-      <!-- ======== -->
-      <section class="other-section">
-        <!-- Stat Section -->
-        <div class="where-to-apply-stat-display">
-          <div class="stat-con">
-            <div class="pending-con">
-              <div class="pending-icon-con">
-                <p>0</p>
-                <i class="fa-solid fa-cart-flatbed-suitcase"></i>
-              </div>
-              <p>Pending Applications</p>
-            </div>
-            <div class="interview-con">
-              <div class="interview-icon-con">
-                <p>0</p>
-                <i class="fa-sharp fa-solid fa-calendar-week"></i>
-              </div>
-              <p>Interviews Scheduled</p>
-            </div>
-            <div class="jobs-declined-con">
-              <div class="jobs-declined-icon-con">
-                <p>0</p>
-                <i class="fa-sharp fa-solid fa-eject"></i>
-              </div>
-              <p>Jobs Declined</p>
-            </div>
-          </div>
+    <main class="landing-page-login">
+      <article class="landing-page">
+        <header>
+          <nav>
+            <h1><span>J</span> Jobster</h1>
+          </nav>
+        </header>
+        <div class="landing-page-body">
+          <section class="job-tracking-sect">
+            <p>Job <span>Tracking</span> App</p>
+            <p>
+              Crucifix narwhal street art asymmetrical, humblebrag tote bag
+              pop-up fixie raclette taxidermy craft beer. Brunch bitters synth,
+              VHS crucifix heirloom meggings bicycle rights.
+            </p>
+            <button class="login-reg-btn">Login/Register</button>
+          </section>
+          <img
+            class="landing-page-img"
+            src="https://redux-toolkit-jobster.netlify.app/static/media/main.17b316de742b3a1202078c5ae18c8261.svg"
+            alt="Job Tracking"
+          />
         </div>
-        <!-- All Jobs Sections -->
-        <div class="where-to-apply-alljobs-display">
-          <div class="all-jobs-con">
-            <span>Search Form</span>
-            <section class="search-status-type-sect">
-              <div class="search-con">
-                <p>Search</p>
+      </article>
+
+      <section class="where-to-apply-login-display">
+        <div class="centralizing-con">
+          <div class="login-reg-con">
+            <header>
+              <nav>
+                <h1><span>J</span> Jobster</h1>
+              </nav>
+            </header>
+            <p>Register</p>
+            <form action="">
+              <div class="reg-name-con">
+                <p>Name</p>
                 <input type="text" />
               </div>
-              <div class="status-con">
-                <p>Status</p>
-                <select name="" id="">
-                  <option value="all">all</option>
-                  <option value="interview">interview</option>
-                  <option value="decline">decline</option>
-                  <option value="pending">pending</option>
-                </select>
+              <div class="reg-email-con">
+                <p>Email</p>
+                <input type="email" />
               </div>
-              <div class="type-con">
-                <p>Type</p>
-                <select name="" id="">
-                  <option value="all">all</option>
-                  <option value="full-time">full-time</option>
-                  <option value="part-time">part-time</option>
-                  <option value="remote">remote</option>
-                  <option value="internship">internship</option>
-                </select>
+              <div class="reg-password-con">
+                <p>Password</p>
+                <input type="password" />
               </div>
-            </section>
-            <section class="sort-clear-sect">
-              <div class="sort-con">
-                <p>Sort</p>
-                <select name="" id="">
-                  <option value="latest">latest</option>
-                  <option value="oldest">oldest</option>
-                  <option value="part-time">part-time</option>
-                  <option value="a-z">a-z</option>
-                  <option value="z-a">z-a</option>
-                </select>
-              </div>
-              <button class="clear-filter-btn">Clear Filters</button>
-            </section>
-          </div>
-        </div>
-        <!-- Add Jobs Section -->
-        <div class="where-to-apply-addjobs-display">
-          <div class="addjob-con">
-            <span>Add Job</span>
-            <section class="job-inputs-sect">
-              <form action="">
-                <div class="position-con">
-                  <p>Position</p>
-                  <input type="text" />
-                </div>
-                <div class="company-con">
-                  <p>Company</p>
-                  <input type="text" />
-                </div>
-                <div class="location-con">
-                  <p>Job Location</p>
-                  <input type="text" value="my city" />
-                </div>
-                <div class="add-job-status-con">
-                  <p>Status</p>
-                  <select name="" id="">
-                    <option value="pending">pending</option>
-                    <option value="interview">interview</option>
-                    <option value="decline">decline</option>
-                  </select>
-                </div>
-                <div class="jobtype-con">
-                  <p>Job Type</p>
-                  <select name="" id="">
-                    <option value="full-time">full-time</option>
-                    <option value="part-time">part-time</option>
-                    <option value="remote">remote</option>
-                    <option value="internship">internship</option>
-                  </select>
-                </div>
-                <div class="btns-con">
-                  <button type="reset" class="clear-btn">Clear</button>
-                  <button type="submit" class="submit-btn">Submit</button>
-                </div>
-              </form>
-            </section>
+              <button type="submit" class="reg-submit-btn">Submit</button>
+            </form>
+            <p>Already a member? <span>Login</span></p>
           </div>
         </div>
       </section>
     </main>
+
+    <!-- JS Section -->
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script type="module" src="./script/main.js"></script>
   </body>
 </html>

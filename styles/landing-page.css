@@ -1,0 +1,195 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.landing-page-login {
+  /* display: none; */
+  height: 100vh;
+  background-color: #f5f4f0;
+}
+
+.landing-page {
+  /* display: none; */
+  height: 100vh;
+  max-width: 1000px;
+  margin: 0px auto;
+  padding-top: 30px;
+}
+@media screen and (max-width: 1000px) {
+  .landing-page {
+    padding-inline: 20px;
+  }
+}
+
+.landing-page header nav {
+  width: fit-content;
+}
+
+.landing-page nav h1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #4b4523;
+}
+.landing-page h1:not(.landing-page h1 span) {
+  letter-spacing: 5px;
+  font-weight: 900;
+  /* color: red; */
+}
+.landing-page h1 span {
+  background-color: #4b4523;
+  font-size: 40px;
+  color: #fff;
+  padding: 0px 15px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.landing-page-body {
+  /* border: 2px solid green; */
+  height: 90%;
+  margin-block: auto;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.job-tracking-sect {
+  width: 45%;
+}
+
+.job-tracking-sect p:first-child {
+  font-size: 35px;
+  font-weight: 900;
+}
+
+.job-tracking-sect p span {
+  color: #756c3a;
+}
+
+.job-tracking-sect p:nth-child(2) {
+  margin-block: 20px;
+  line-height: 0.7cm;
+}
+
+.login-reg-btn {
+  background-color: #756c3a;
+  color: #fff;
+  border: none;
+  padding: 10px 20px;
+  font-size: 16px;
+  border-radius: 5px;
+}
+.login-reg-btn:hover {
+  background-color: #554d20;
+}
+
+.landing-page-img {
+  width: 50%;
+}
+@media screen and (max-width: 980px) {
+  .landing-page-img {
+    display: none;
+  }
+  .job-tracking-sect {
+    width: 90%;
+  }
+}
+
+/* ======== */
+/* Login/Register Section */
+/* ======== */
+.where-to-apply-login-display {
+  display: none;
+}
+
+.centralizing-con {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.login-reg-con {
+  width: 400px;
+  background-color: #fff;
+  padding: 40px 30px;
+  border-top: 5px solid #4b4523;
+  border-radius: 8px;
+  box-shadow: 0px 0px 28px -11px;
+}
+
+.login-reg-con header nav {
+  width: fit-content;
+}
+
+.login-reg-con nav h1 {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #4b4523;
+}
+.login-reg-con h1:not(.landing-page h1 span) {
+  letter-spacing: 5px;
+  font-weight: 900;
+  /* color: red; */
+}
+.login-reg-con h1 span {
+  background-color: #4b4523;
+  font-size: 40px;
+  color: #fff;
+  padding: 0px 15px;
+  margin-right: 10px;
+  border-radius: 10px;
+}
+
+.login-reg-con p:nth-child(2) {
+  font-size: 30px;
+  text-align: center;
+  margin-block: 20px;
+}
+
+.login-reg-con form p {
+  margin-block: 15px 5px;
+}
+
+.login-reg-con form input {
+  width: 100%;
+  height: 35px;
+  font-size: 15px;
+  background-color: #f5f4f0;
+  border-radius: 5px;
+  border: 1px solid #6e6c65;
+  padding-left: 12px;
+}
+
+.reg-submit-btn {
+  width: 100%;
+  background-color: #554d20;
+  color: #fff;
+  font-size: 16px;
+  border: none;
+  margin-block: 20px;
+  padding-block: 10px;
+  border-radius: 5px;
+}
+.reg-submit-btn:hover {
+  background-color: #4b4315;
+}
+
+.login-reg-con p:last-child {
+  /* color: red; */
+  text-align: center;
+}
+
+.login-reg-con p:last-child span {
+  cursor: pointer;
+  color: #4b4523;
+  /* font-weight: 600; */
+}

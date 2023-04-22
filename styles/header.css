@@ -8,16 +8,16 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-header {
+.dashboard-page header {
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 30px 5% 30px 30px;
-  height: 12vh;
+  /* height: 12vh; */
   /* border: 2px solid red; */
 }
 
-header nav {
+.dashboard-page header nav {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -25,12 +25,13 @@ header nav {
   /* border: 2px solid green; */
 }
 @media screen and (max-width: 1000px) {
-  header nav {
-    width: 230px;
+  .dashboard-page header nav {
+    width: 30vw;
+    /* border: 2px solid red; */
   }
 }
 
-h1 {
+.dashboard-page h1 {
   min-width: 220px;
   display: flex;
   align-items: center;
@@ -39,27 +40,27 @@ h1 {
   /* border: 2px solid red; */
 }
 
-h1:not(h1 span) {
+.dashboard-page h1:not(h1 span) {
   letter-spacing: 5px;
   font-weight: 900;
 }
 @media screen and (max-width: 1000px) {
-  h1 {
-    font-size: 18px;
-    min-width: 130px;
+  .dashboard-page h1 {
+    font-size: 3.5vw;
+    min-width: 22vw;
     /* border: 2px solid red; */
   }
-  h1:not(h1 span) {
+  .dashboard-page h1:not(h1 span) {
     letter-spacing: 0px;
-    font-weight: 900;
   }
-  h1 span {
-    font-size: 30px !important;
+  .dashboard-page h1 span {
+    font-size: 4.5vw !important;
     padding: 0 8px !important;
+    margin-right: 10px;
   }
 }
 
-h1 span {
+.dashboard-page h1 span {
   background-color: #4b4523;
   font-size: 40px;
   color: #fff;
@@ -77,20 +78,21 @@ h1 span {
 }
 @media screen and (max-width: 1000px) {
   .fa-bars-staggered {
-    font-size: 22px;
+    font-size: 3.5vw;
+    /* margin-left: 5vw; */
   }
   .fa-bars-staggered:hover {
-    font-size: 25px;
+    font-size: 4vw;
   }
 }
 
-header p {
+.dashboard-page header p {
   width: 45%;
   text-align: center;
   font-size: 35px;
 }
 @media screen and (max-width: 1000px) {
-  header p {
+  .dashboard-page header p {
     display: none;
   }
 }
@@ -101,11 +103,17 @@ header p {
 }
 
 .head-btn-con button {
-  padding: 10px 15px;
+  padding: 0.7vw 1.2vw;
   background-color: #69633e;
   color: #fff;
   border-radius: 5px;
   border: none;
+  font-size: 18px;
+}
+@media screen and (max-width: 1000px) {
+  .head-btn-con button {
+    font-size: 15px;
+  }
 }
 .head-btn-con button:hover {
   background-color: #4b4523;
@@ -118,4 +126,25 @@ button .fa-user {
 
 button .fa-caret-down {
   margin-left: 10px;
+}
+
+/* Pop up Nav */
+.pop-up-bg-con {
+  /* display: none; */
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(124, 120, 120);
+  /* display: flex;
+  justify-content: center;
+  align-items: center; */
+}
+
+.popup-nav {
+  width: 95%;
+  height: 90vh;
+  background-color: #fff;
+  padding-left: 0;
 }

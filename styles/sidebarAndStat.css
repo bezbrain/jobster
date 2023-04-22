@@ -1,19 +1,48 @@
-main {
+.dashboard-page {
+  /* display: none; */
+}
+
+.sidebar-other-sections {
   padding-left: 30px;
   display: flex;
   width: 100%;
-  height: 88%;
-  /* border: 2px solid green; */
+  min-height: 88vh;
+  /* border: 2px solid red; */
+}
+@media screen and (max-height: 700px) {
+  .sidebar-other-sections {
+    /* border: 2px solid red; */
+    min-height: 100vh;
+  }
 }
 
 @media screen and (max-width: 1000px) {
-  main {
+  .sidebar-other-sections {
     padding-left: 0px;
   }
-  main aside {
+  .sidebar-other-sections aside {
     display: none;
   }
+  aside ul {
+    /* border: 2px solid red; */
+    margin-inline: auto;
+    min-width: 50%;
+  }
 }
+/* Toggle Side Bar CSS */
+.add-toggle-bar-con {
+  display: none;
+}
+
+/* .add-tab-phone-css {
+  width: 100vw;
+  height: 100vh;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background-color: rgb(124, 120, 120);
+} */
+/* ======== */
 
 aside ul {
   /* border: 2px solid green; */
@@ -28,6 +57,7 @@ aside ul li {
   display: flex;
   align-items: center;
   transition: ease 0.5s all;
+  font-weight: 700;
 }
 
 aside ul li:hover {

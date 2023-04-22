@@ -1,0 +1,242 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <!-- CSS Section -->
+    <link rel="stylesheet" href="../styles/header.css" />
+    <link rel="stylesheet" href="../styles/sidebarAndStat.css" />
+    <link rel="stylesheet" href="../styles/alljobs.css" />
+    <link rel="stylesheet" href="../styles/addjob.css" />
+    <link rel="stylesheet" href="../styles/profile.css" />
+    <script src="../all.js"></script>
+    <title>Jobster Dashboard</title>
+  </head>
+  <body>
+    <!-- ======== -->
+    <!-- Dashboard Page -->
+    <!-- ======== -->
+    <main class="dashboard-page">
+      <!-- Header Section -->
+      <header>
+        <nav>
+          <h1><span>J</span> Jobster</h1>
+          <div class="toggle-bar-con">
+            <i class="fa-sharp fa-solid fa-bars-staggered"></i>
+          </div>
+        </nav>
+        <p>Dashboard</p>
+        <div class="head-btn-con">
+          <button>
+            <i class="fa-solid fa-user"></i>Sample<i
+              class="fa-solid fa-caret-down"
+            ></i>
+          </button>
+        </div>
+      </header>
+      <!-- Nav popup -->
+      <!-- <div class="pop-up-bg-con">
+        <nav class="popup-nav">
+          <div class="close-icon">
+            <i class="fa-solid fa-xmark"></i>
+          </div>
+          <aside>
+            <ul>
+              <li><i class="fa-solid fa-chart-column"></i>Stats</li>
+              <li>
+                <i class="fa-sharp fa-solid fa-magnifying-glass-dollar"></i>All
+                Jobs
+              </li>
+              <li><i class="fa-solid fa-person-circle-plus"></i>Add Jobs</li>
+              <li><i class="fa-sharp fa-solid fa-address-card"></i>Profile</li>
+            </ul>
+          </aside>
+        </nav>
+      </div> -->
+
+      <!-- Side Bar Section and Other Sections -->
+      <main class="sidebar-other-sections">
+        <!-- Side Bar Section -->
+        <aside>
+          <ul>
+            <li><i class="fa-solid fa-chart-column"></i>Stats</li>
+            <li>
+              <i class="fa-sharp fa-solid fa-magnifying-glass-dollar"></i>All
+              Jobs
+            </li>
+            <li><i class="fa-solid fa-person-circle-plus"></i>Add Jobs</li>
+            <li><i class="fa-sharp fa-solid fa-address-card"></i>Profile</li>
+          </ul>
+        </aside>
+
+        <!-- Other Sections -->
+        <section class="other-section">
+          <!-- Stat Section -->
+          <div class="where-to-apply-stat-display con">
+            <div class="stat-con">
+              <div class="pending-con">
+                <div class="pending-icon-con">
+                  <p>0</p>
+                  <i class="fa-solid fa-cart-flatbed-suitcase"></i>
+                </div>
+                <p>Pending Applications</p>
+              </div>
+              <div class="interview-con">
+                <div class="interview-icon-con">
+                  <p>0</p>
+                  <i class="fa-sharp fa-solid fa-calendar-week"></i>
+                </div>
+                <p>Interviews Scheduled</p>
+              </div>
+              <div class="jobs-declined-con">
+                <div class="jobs-declined-icon-con">
+                  <p>0</p>
+                  <i class="fa-sharp fa-solid fa-eject"></i>
+                </div>
+                <p>Jobs Declined</p>
+              </div>
+            </div>
+          </div>
+          <!-- All Jobs Sections -->
+          <div class="where-to-apply-alljobs-display con">
+            <div class="all-jobs-con">
+              <span>Search Form</span>
+              <section class="search-status-type-sect">
+                <div class="search-con">
+                  <p>Search</p>
+                  <input type="text" />
+                </div>
+                <div class="status-con">
+                  <p>Status</p>
+                  <select name="" id="">
+                    <option value="all">All</option>
+                    <option value="interview">Interview</option>
+                    <option value="decline">Decline</option>
+                    <option value="pending">Pending</option>
+                  </select>
+                </div>
+                <div class="type-con">
+                  <p>Type</p>
+                  <select name="" id="">
+                    <option value="all">All</option>
+                    <option value="full-time">Full-time</option>
+                    <option value="part-time">Part-time</option>
+                    <option value="remote">Remote</option>
+                    <option value="internship">Internship</option>
+                  </select>
+                </div>
+              </section>
+              <section class="sort-clear-sect">
+                <div class="sort-con">
+                  <p>Sort</p>
+                  <select name="" id="">
+                    <option value="latest">Latest</option>
+                    <option value="oldest">Oldest</option>
+                    <option value="part-time">Part-time</option>
+                    <option value="a-z">a-z</option>
+                    <option value="z-a">z-a</option>
+                  </select>
+                </div>
+                <button class="clear-filter-btn">Clear Filters</button>
+              </section>
+            </div>
+            <!-- Display added job Section -->
+            <div class="display-all-jobs-con">
+              <h2><span>0</span> Jobs Found</h2>
+              <div class="apply-grid">
+                <!-- <div class="display-jobs-con">
+                <h3>Job Position</h3>
+                <p>Company Name</p>
+                <section class="more-info-sect">
+                  <p>
+                    <i class="fa-solid fa-paper-plane"></i><span>Location</span>
+                  </p>
+                  <p>
+                    <i class="fa-sharp fa-solid fa-calendar-days"></i></i></i><span>Date</span>
+                  </p>
+                  <p>
+                    <i class="fa-sharp fa-solid fa-box"></i><span>Job Type</span>
+                  </p>
+                </section>
+                <button class="job-status-btn">Job Status</button>
+                <br><button class="edit-btn">Edit</button><button class="delete-btn">Delete</button>
+              </div> -->
+              </div>
+            </div>
+          </div>
+          <!-- Add Jobs Section -->
+          <div class="where-to-apply-addjobs-display con">
+            <div class="addjob-con">
+              <span>Add Job</span>
+              <section class="job-inputs-sect">
+                <form>
+                  <div class="position-con">
+                    <p>Position</p>
+                    <input type="text" />
+                  </div>
+                  <div class="company-con">
+                    <p>Company</p>
+                    <input type="text" />
+                  </div>
+                  <div class="location-con">
+                    <p>Job Location</p>
+                    <input type="text" value="my city" />
+                  </div>
+                  <div class="add-job-status-con">
+                    <p>Status</p>
+                    <select name="" id="">
+                      <option value="pending">Pending</option>
+                      <option value="interview">Interview</option>
+                      <option value="decline">Decline</option>
+                    </select>
+                  </div>
+                  <div class="jobtype-con">
+                    <p>Job Type</p>
+                    <select name="" id="">
+                      <option value="full-time">Full-time</option>
+                      <option value="part-time">Part-time</option>
+                      <option value="remote">Remote</option>
+                      <option value="internship">Internship</option>
+                    </select>
+                  </div>
+                  <div class="btns-con">
+                    <button type="reset" class="clear-btn">Clear</button>
+                    <button type="submit" class="submit-btn">Submit</button>
+                  </div>
+                </form>
+              </section>
+            </div>
+          </div>
+          <!-- Profile Section -->
+          <div class="where-to-apply-profile-display con">
+            <div class="profile-con">
+              <span>Profile</span>
+              <form action="">
+                <section class="first-name-section">
+                  <p>First Name</p>
+                  <input type="text" />
+                </section>
+                <section class="last-name-section">
+                  <p>Last Name</p>
+                  <input type="text" value="Last Name" />
+                </section>
+                <section class="email-section">
+                  <p>Email</p>
+                  <input type="email" />
+                </section>
+                <section class="location-section">
+                  <p>Location</p>
+                  <input type="text" value="my city" />
+                </section>
+                <button type="submit" class="save-btn">Save Changes</button>
+              </form>
+            </div>
+          </div>
+        </section>
+      </main>
+    </main>
+
+    <!-- Script Section -->
+    <script src="./dashboard.html" type="module"></script>
+  </body>
+</html>
