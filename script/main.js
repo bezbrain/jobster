@@ -1,16 +1,16 @@
-import {
-  firstName,
-  profileEmail,
-  // toggleIcon,
-  // profileForm,
-  // addJobForm,
-  // addJob,
-  // updateProfileForm,
-  // displayJobs,
-  // sideBar,
-  // resetBtn,
-  // sideBarTabPhone,
-} from "./dashboardBody.js";
+// import {
+//   firstName,
+//   profileEmail,
+//   // toggleIcon,
+//   // profileForm,
+//   // addJobForm,
+//   // addJob,
+//   // updateProfileForm,
+//   // displayJobs,
+//   // sideBar,
+//   // resetBtn,
+//   // sideBarTabPhone,
+// } from "./dashboardBody.js";
 
 const loginRegBtn = document.querySelector(".login-reg-btn");
 const displayRegPage = document.querySelector(".where-to-apply-login-display");
@@ -21,8 +21,8 @@ const regEmail = document.querySelector("form .reg-email-con input");
 const regPassword = document.querySelector(" form .reg-password-con input");
 const registerForm = document.querySelector(".login-reg-con form");
 
-// const landingPageLogin = document.querySelector(".landing-page-login");
-// const dashboard = document.querySelector(".dashboard-page");
+const landingPageLogin = document.querySelector(".landing-page-login");
+const dashboard = document.querySelector(".dashboard-page");
 
 loginRegBtn.onclick = () => {
   undisplayLandingPage.style.display = "none";
@@ -49,12 +49,15 @@ const register = async () => {
     console.log("Password cannot be empty");
     return;
   }
-  console.log(regOption);
-  location.href = "../pages/dashboard.html";
 
-  firstName.value = regOption.name;
-  profileEmail.value = regOption.email;
-  console.log(regOption);
+  // Send to localStorage
+  const { password, ...rest } = regOption; //Exclude password
+  localStorage.setItem("currentUser", JSON.stringify(rest));
+
+  setTimeout(() => {
+    location.href = "../pages/dashboard.html";
+    console.log(regOption);
+  }, 3000);
 };
 
 // Register form

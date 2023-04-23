@@ -128,23 +128,67 @@ button .fa-caret-down {
   margin-left: 10px;
 }
 
+/* ======== */
 /* Pop up Nav */
+.append-popup {
+  display: none;
+  opacity: 0;
+  /* transition: opacity 2s ease-out; */
+}
+/* Add styles for when the element is visible */
+.add-opacity {
+  display: block;
+  opacity: 1;
+  transition: opacity 2s ease-in-out;
+}
+
 .pop-up-bg-con {
-  /* display: none; */
   width: 100vw;
   height: 100vh;
   position: fixed;
   top: 0;
   left: 0;
   background-color: rgb(124, 120, 120);
-  /* display: flex;
+  display: flex;
   justify-content: center;
-  align-items: center; */
+  align-items: center;
 }
 
 .popup-nav {
   width: 95%;
   height: 90vh;
   background-color: #fff;
-  padding-left: 0;
+  border-radius: 10px;
+}
+
+.popup-nav .close-icon {
+  font-size: 2.8em;
+  color: rgb(189, 16, 16);
+  margin: 15px 30px;
+  transition: ease 1s all;
+  width: fit-content;
+}
+.popup-nav .close-icon:hover {
+  font-size: 3.2rem;
+  color: rgb(238, 18, 18);
+}
+
+.popup-nav section {
+  /* border: 2px solid red; */
+  display: flex;
+  justify-content: center;
+  margin-top: 50px;
+}
+
+.popup-nav section li {
+  list-style-type: none;
+  margin-top: 30px;
+  transition: ease 0.5s all;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+.popup-nav section li:hover {
+  background-color: #817c5a;
+  padding: 10px 15px;
 }

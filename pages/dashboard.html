@@ -35,24 +35,28 @@
         </div>
       </header>
       <!-- Nav popup -->
-      <!-- <div class="pop-up-bg-con">
-        <nav class="popup-nav">
-          <div class="close-icon">
-            <i class="fa-solid fa-xmark"></i>
-          </div>
-          <aside>
-            <ul>
-              <li><i class="fa-solid fa-chart-column"></i>Stats</li>
-              <li>
-                <i class="fa-sharp fa-solid fa-magnifying-glass-dollar"></i>All
-                Jobs
-              </li>
-              <li><i class="fa-solid fa-person-circle-plus"></i>Add Jobs</li>
-              <li><i class="fa-sharp fa-solid fa-address-card"></i>Profile</li>
-            </ul>
-          </aside>
-        </nav>
-      </div> -->
+      <div class="append-popup">
+        <div class="pop-up-bg-con">
+          <nav class="popup-nav">
+            <div class="close-icon">
+              <i class="fa-solid fa-xmark"></i>
+            </div>
+            <section>
+              <ul>
+                <li><i class="fa-solid fa-chart-column"></i>Stats</li>
+                <li>
+                  <i class="fa-sharp fa-solid fa-magnifying-glass-dollar"></i
+                  >All Jobs
+                </li>
+                <li><i class="fa-solid fa-person-circle-plus"></i>Add Jobs</li>
+                <li>
+                  <i class="fa-sharp fa-solid fa-address-card"></i>Profile
+                </li>
+              </ul>
+            </section>
+          </nav>
+        </div>
+      </div>
 
       <!-- Side Bar Section and Other Sections -->
       <main class="sidebar-other-sections">
@@ -109,20 +113,20 @@
                 <div class="status-con">
                   <p>Status</p>
                   <select name="" id="">
-                    <option value="all">All</option>
-                    <option value="interview">Interview</option>
-                    <option value="decline">Decline</option>
-                    <option value="pending">Pending</option>
+                    <option value="All">All</option>
+                    <option value="Interview">Interview</option>
+                    <option value="Decline">Decline</option>
+                    <option value="Pending">Pending</option>
                   </select>
                 </div>
                 <div class="type-con">
                   <p>Type</p>
                   <select name="" id="">
-                    <option value="all">All</option>
-                    <option value="full-time">Full-time</option>
-                    <option value="part-time">Part-time</option>
-                    <option value="remote">Remote</option>
-                    <option value="internship">Internship</option>
+                    <option value="All">All</option>
+                    <option value="Full-time">Full-time</option>
+                    <option value="Part-time">Part-time</option>
+                    <option value="Remote">Remote</option>
+                    <option value="Internship">Internship</option>
                   </select>
                 </div>
               </section>
@@ -185,18 +189,18 @@
                   <div class="add-job-status-con">
                     <p>Status</p>
                     <select name="" id="">
-                      <option value="pending">Pending</option>
-                      <option value="interview">Interview</option>
-                      <option value="decline">Decline</option>
+                      <option value="Pending">Pending</option>
+                      <option value="Interview">Interview</option>
+                      <option value="Decline">Decline</option>
                     </select>
                   </div>
                   <div class="jobtype-con">
                     <p>Job Type</p>
                     <select name="" id="">
-                      <option value="full-time">Full-time</option>
-                      <option value="part-time">Part-time</option>
-                      <option value="remote">Remote</option>
-                      <option value="internship">Internship</option>
+                      <option value="Full-time">Full-time</option>
+                      <option value="Part-time">Part-time</option>
+                      <option value="Remote">Remote</option>
+                      <option value="Internship">Internship</option>
                     </select>
                   </div>
                   <div class="btns-con">
@@ -214,19 +218,19 @@
               <form action="">
                 <section class="first-name-section">
                   <p>First Name</p>
-                  <input type="text" />
+                  <input type="text" readonly />
                 </section>
                 <section class="last-name-section">
                   <p>Last Name</p>
-                  <input type="text" value="Last Name" />
+                  <input type="text" value="Input Last Name" />
                 </section>
                 <section class="email-section">
                   <p>Email</p>
-                  <input type="email" />
+                  <input type="email" readonly />
                 </section>
                 <section class="location-section">
                   <p>Location</p>
-                  <input type="text" value="my city" />
+                  <input type="text" value="Input my city" />
                 </section>
                 <button type="submit" class="save-btn">Save Changes</button>
               </form>
@@ -237,6 +241,6 @@
     </main>
 
     <!-- Script Section -->
-    <script src="./dashboard.html" type="module"></script>
+    <script src="../script/dashboardBody.js" type="module"></script>
   </body>
 </html>

@@ -29,20 +29,13 @@
     min-width: 50%;
   }
 }
-/* Toggle Side Bar CSS */
-.add-toggle-bar-con {
-  display: none;
-}
 
-/* .add-tab-phone-css {
-  width: 100vw;
-  height: 100vh;
-  position: fixed;
-  top: 0;
-  left: 0;
-  background-color: rgb(124, 120, 120);
-} */
-/* ======== */
+@media screen and (min-width: 1000px) {
+  /* Toggle Side Bar CSS */
+  .add-toggle-bar-con {
+    display: none;
+  }
+}
 
 aside ul {
   /* border: 2px solid green; */
