@@ -1,3 +1,15 @@
+import { displayJobs, sideAndPopUpBars } from "./fuctions.js";
+
+// Add jobs
+const addJobForm = document.querySelector(".job-inputs-sect form");
+const position = document.querySelector(".position-con input");
+const company = document.querySelector(".company-con input");
+const jobLocation = document.querySelector(".location-con input");
+const status = document.querySelector(".add-job-status-con select");
+const jobType = document.querySelector(".jobtype-con select");
+const resetBtn = document.querySelector(".clear-btn");
+
+// Side Bar selection
 const activityBar = document.querySelectorAll("aside ul li");
 const activityBarContent = document.querySelectorAll(".con");
 
@@ -6,7 +18,6 @@ sideAndPopUpBars(activityBar, activityBarContent);
 
 // Activity Bar toggle at min-width and max-width: 1000px
 const toggleIcon = document.querySelector(".toggle-bar-con");
-console.log(toggleIcon);
 const sideBar = document.querySelector(".sidebar-other-sections aside");
 
 // Toggle the side bar when toggle icon is clicked
@@ -17,7 +28,6 @@ toggleIcon.onclick = () => {
   let pageScreen = window.innerWidth;
   sideBar.classList.toggle("add-toggle-bar-con"); //Toggle side bar when screen is more than 1000px
   if (pageScreen < 1000) {
-    // popUpNav.style.display = "block";
     popUpNav.classList.add("add-opacity");
     console.log("clicked");
   }
@@ -25,7 +35,6 @@ toggleIcon.onclick = () => {
 // Close popup NavBar
 closePopUp.onclick = () => {
   popUpNav.classList.remove("add-opacity");
-  // popUpNav.style.display = "none";
 };
 
 // Remove popup when screensize is more than 1000px
@@ -43,18 +52,18 @@ sideAndPopUpBars(popUpBar, activityBarContent, popUpNav);
 
 /*========*/
 // Profile Section
-export const firstName = document.querySelector(".first-name-section input");
-export const profileEmail = document.querySelector(".email-section input");
+const firstName = document.querySelector(".first-name-section input");
+const profileEmail = document.querySelector(".email-section input");
 const lastName = document.querySelector(".last-name-section input");
 const location = document.querySelector(".location-section input");
 
 // Update profile
 const profileForm = document.querySelector(".profile-con form");
-console.log(profileForm);
 
 // collect back from loclStorage
 let inputArr = JSON.parse(localStorage.getItem("setInputJob")) || [];
 
+// Display when the page loads
 window.onload = () => {
   const getCurrentUser = JSON.parse(localStorage.getItem("currentUser"));
   // Checkout Redirection when localStorage is deleted
@@ -65,15 +74,14 @@ window.onload = () => {
     console.log("I am index");
     location.href = "index.html";
   }
-
   // To update the profile when the page reloads
   const getUpdateProfileOnLoad = JSON.parse(
     localStorage.getItem("setUpdateProfile")
   );
   lastName.value = getUpdateProfileOnLoad.lastName;
   location.value = getUpdateProfileOnLoad.location;
-
-  displayJobs(inputArr);
+  displayJobs(inputArr, appendHere, jobsFound);
+  updateStatNumbers();
 };
 
 const updateProfileForm = async () => {
@@ -89,7 +97,7 @@ const updateProfileForm = async () => {
   location.value = getUpdateProfile.location;
 };
 
-// Function to update the profile when adjustment is made from the profile section
+// Update the profile when adjustment is made from the profile section
 profileForm.onsubmit = (e) => {
   e.preventDefault();
   updateProfileForm();
@@ -98,16 +106,6 @@ profileForm.onsubmit = (e) => {
 
 /*========*/
 // Add Job
-const addJobForm = document.querySelector(".job-inputs-sect form");
-const position = document.querySelector(".position-con input");
-const company = document.querySelector(".company-con input");
-const jobLocation = document.querySelector(".location-con input");
-const status = document.querySelector(".add-job-status-con select");
-const jobType = document.querySelector(".jobtype-con select");
-const resetBtn = document.querySelector(".clear-btn");
-
-// const getInputJob = JSON.parse(localStorage.getItem("setInputJob"));
-
 const addJob = async () => {
   const inputJob = {
     position: position.value,
@@ -117,6 +115,15 @@ const addJob = async () => {
     status: status.value,
     jobType: jobType.value,
   };
+  if (position.value === "") {
+    console.log("Field cannot be empty"); //Write error code here
+    return;
+  }
+  if (company.value === "") {
+    console.log("Company cannot be empty"); // Write error code here
+    return;
+  }
+
   console.log(inputJob);
   inputArr.push(inputJob);
   localStorage.setItem("setInputJob", JSON.stringify(inputArr));
@@ -127,71 +134,41 @@ const addJob = async () => {
 addJobForm.onsubmit = (e) => {
   e.preventDefault();
   addJob();
-  displayJobs(inputArr);
+  displayJobs(inputArr, appendHere, jobsFound);
+  updateStatNumbers();
   resetBtn.click(); //Trigger reset btn when submit btn is triggered
 };
-
-/*========*/
-// Stat/Job Status
-const pendingApp = document.querySelector(".pending-icon-con p");
-const interviewSch = document.querySelector(".interview-icon-con p");
-const jobDeclined = document.querySelector(".jobs-declined-icon-con p");
 
 /*========*/
 // All Jobs Display
 const appendHere = document.querySelector(".apply-grid");
 const jobsFound = document.querySelector(".display-all-jobs-con h2 span");
+const deleteJob = document.querySelector(".delete-btn");
+console.log(deleteJob);
+console.log(appendHere);
 
 /*========*/
-// All functions
-function displayJobs(jobs) {
-  // const dateTime = new Date().toLocaleString();
+// Stat/Job Status
+const pendingCon = document.querySelector(".pending-icon-con");
+const interviewCon = document.querySelector(".interview-icon-con");
+const jobDeclinedCon = document.querySelector(".jobs-declined-icon-con");
+const pendingApp = document.querySelector(".pending-icon-con p");
+const interviewSch = document.querySelector(".interview-icon-con p");
+const jobDeclined = document.querySelector(".jobs-declined-icon-con p");
 
-  appendHere.innerHTML = "";
-  jobs.forEach((each) => {
-    const { position, company, jobLocation, status, jobType, date } = each;
-    let displayAddedJobs = `<div class="display-jobs-con">
-                  <h3>${position}</h3>
-                  <p>${company}</p>
-                  <section class="more-info-sect">
-                    <p>
-                      <i class="fa-solid fa-paper-plane"></i><span>${jobLocation}</span>
-                    </p>
-                    <p>
-                      <i class="fa-sharp fa-solid fa-calendar-days"></i></i></i><span>${date}</span>
-                    </p>
-                    <p>
-                      <i class="fa-sharp fa-solid fa-box"></i><span>${jobType}</span>
-                    </p>
-                  </section>
-                  <button class="job-status-btn">${status}</button>
-                  <br><button class="edit-btn">Edit</button><button class="delete-btn">Delete</button>
-                </div>`;
-    appendHere.innerHTML += displayAddedJobs;
-    console.log(appendHere);
+// Using dataset to dynamically update the numbers of pending, interviewed and declined jobs
+function updateStatNumbers() {
+  const newPending = inputArr.filter((each) => {
+    return each.status === pendingCon.dataset.pending;
   });
-  jobsFound.textContent = inputArr.length;
-}
+  const newInterview = inputArr.filter((each) => {
+    return each.status === interviewCon.dataset.interview;
+  });
+  const newDecline = inputArr.filter((each) => {
+    return each.status === jobDeclinedCon.dataset.decline;
+  });
 
-// Function for side bar at more than 1000px and popUp bar at less than 1000px
-function sideAndPopUpBars(bars, barContent, togglePopup) {
-  bars.forEach((each, i) => {
-    each.onclick = (e) => {
-      barContent.forEach((each) => {
-        each.style.display = "none";
-      });
-      bars.forEach((each) => {
-        each.style.backgroundColor = "unset";
-      });
-      barContent[i].style.display = "block";
-      bars[i].style.backgroundColor = "#756C3A";
-      bars[i].style.paddingBlock = "5px";
-      if (window.innerWidth < 1000) {
-        // togglePopup.style.display = "none";
-        // togglePopup.style.opacity = "1";
-        togglePopup.classList.remove("add-opacity");
-        // togglePopup.classList.remove("visible");
-      }
-    };
-  });
+  pendingApp.textContent = newPending.length;
+  interviewSch.textContent = newInterview.length;
+  jobDeclined.textContent = newDecline.length;
 }

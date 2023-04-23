@@ -79,21 +79,21 @@
           <div class="where-to-apply-stat-display con">
             <div class="stat-con">
               <div class="pending-con">
-                <div class="pending-icon-con">
+                <div class="pending-icon-con" data-Pending="Pending">
                   <p>0</p>
                   <i class="fa-solid fa-cart-flatbed-suitcase"></i>
                 </div>
                 <p>Pending Applications</p>
               </div>
               <div class="interview-con">
-                <div class="interview-icon-con">
+                <div class="interview-icon-con" data-Interview="Interview">
                   <p>0</p>
                   <i class="fa-sharp fa-solid fa-calendar-week"></i>
                 </div>
                 <p>Interviews Scheduled</p>
               </div>
               <div class="jobs-declined-con">
-                <div class="jobs-declined-icon-con">
+                <div class="jobs-declined-icon-con" data-Decline="Decline">
                   <p>0</p>
                   <i class="fa-sharp fa-solid fa-eject"></i>
                 </div>
@@ -184,7 +184,7 @@
                   </div>
                   <div class="location-con">
                     <p>Job Location</p>
-                    <input type="text" value="my city" />
+                    <input type="text" value="Input city" />
                   </div>
                   <div class="add-job-status-con">
                     <p>Status</p>
@@ -230,7 +230,7 @@
                 </section>
                 <section class="location-section">
                   <p>Location</p>
-                  <input type="text" value="Input my city" />
+                  <input type="text" value="Input city" />
                 </section>
                 <button type="submit" class="save-btn">Save Changes</button>
               </form>
@@ -241,6 +241,6 @@
     </main>
 
     <!-- Script Section -->
-    <script src="../script/dashboardBody.js" type="module"></script>
+    <script src="../script/dashboardBody.js" defer type="module"></script>
   </body>
 </html>

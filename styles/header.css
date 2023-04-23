@@ -132,14 +132,14 @@ button .fa-caret-down {
 /* Pop up Nav */
 .append-popup {
   display: none;
-  opacity: 0;
-  /* transition: opacity 2s ease-out; */
+  /* opacity: 0;
+  transition: opacity 2s ease-in-out; */
 }
 /* Add styles for when the element is visible */
 .add-opacity {
   display: block;
-  opacity: 1;
-  transition: opacity 2s ease-in-out;
+  /* opacity: 1; */
+  /* transition: opacity 2s ease-in-out; */
 }
 
 .pop-up-bg-con {
@@ -155,8 +155,8 @@ button .fa-caret-down {
 }
 
 .popup-nav {
-  width: 95%;
-  height: 90vh;
+  width: 80%;
+  height: 80vh;
   background-color: #fff;
   border-radius: 10px;
 }
