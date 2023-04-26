@@ -1,5 +1,28 @@
-import { displayJobs, sideAndPopUpBars } from "./fuctions.js";
+import {
+  displayJobs,
+  sideAndPopUpBars,
+  editBtnClicked,
+  notificationDashboard,
+} from "./fuctions.js";
 
+const getCurrentUser = JSON.parse(localStorage.getItem("currentUser"));
+
+/*=======*/
+// Logout
+const profile = document.querySelector(".head-btn-con .top-profile span");
+const clickToLogout = document.querySelector(".top-profile");
+const logout = document.querySelector(".logout");
+
+clickToLogout.onclick = () => {
+  logout.classList.toggle("add-logout-css");
+};
+
+logout.onclick = () => {
+  console.log("Logout here");
+  window.location.replace("../index.html");
+};
+
+/*========*/
 // Add jobs
 const addJobForm = document.querySelector(".job-inputs-sect form");
 const position = document.querySelector(".position-con input");
@@ -27,7 +50,7 @@ const popUpNav = document.querySelector(".append-popup");
 toggleIcon.onclick = () => {
   let pageScreen = window.innerWidth;
   sideBar.classList.toggle("add-toggle-bar-con"); //Toggle side bar when screen is more than 1000px
-  if (pageScreen < 1000) {
+  if (pageScreen <= 1000) {
     popUpNav.classList.add("add-opacity");
     console.log("clicked");
   }
@@ -62,28 +85,30 @@ const profileForm = document.querySelector(".profile-con form");
 
 // collect back from loclStorage
 let inputArr = JSON.parse(localStorage.getItem("setInputJob")) || [];
-
+/*========*/
 // Display when the page loads
 window.onload = () => {
-  const getCurrentUser = JSON.parse(localStorage.getItem("currentUser"));
-  // Checkout Redirection when localStorage is deleted
+  const conditionForProfile = getCurrentUser ? getCurrentUser.name : "Sample";
+  profile.textContent = conditionForProfile; //Set right top dashboard profile to the login/Register name
+
   if (getCurrentUser !== null) {
     firstName.value = getCurrentUser.name;
     profileEmail.value = getCurrentUser.email;
   } else {
+    // Don't give access to dashboard when not registered
     console.log("I am index");
-    location.href = "index.html";
+    window.location.replace("../index.html");
   }
   // To update the profile when the page reloads
-  const getUpdateProfileOnLoad = JSON.parse(
-    localStorage.getItem("setUpdateProfile")
-  );
-  lastName.value = getUpdateProfileOnLoad.lastName;
-  location.value = getUpdateProfileOnLoad.location;
+  const getUpdateProfileOnLoad =
+    JSON.parse(localStorage.getItem("setUpdateProfile")) || [];
+  lastName.value = getUpdateProfileOnLoad.lastName || "Input Last Name";
+  location.value = getUpdateProfileOnLoad.location || "Input city";
   displayJobs(inputArr, appendHere, jobsFound);
   updateStatNumbers();
 };
 
+// Update LastName and Location
 const updateProfileForm = async () => {
   const updateProfile = {
     lastName: lastName.value,
@@ -106,8 +131,11 @@ profileForm.onsubmit = (e) => {
 
 /*========*/
 // Add Job
+let failure = "failure";
+let success = "success";
 const addJob = async () => {
   const inputJob = {
+    id: new Date().getTime().toString(),
     position: position.value,
     company: company.value,
     jobLocation: jobLocation.value,
@@ -115,14 +143,13 @@ const addJob = async () => {
     status: status.value,
     jobType: jobType.value,
   };
-  if (position.value === "") {
-    console.log("Field cannot be empty"); //Write error code here
+  if (!position.value || !company.value) {
+    // Add Job Failed
+    notificationDashboard(failure, "Field cannot be empty");
     return;
   }
-  if (company.value === "") {
-    console.log("Company cannot be empty"); // Write error code here
-    return;
-  }
+  // Add Job Successful
+  notificationDashboard(success, "Job added successfully");
 
   console.log(inputJob);
   inputArr.push(inputJob);
@@ -130,22 +157,102 @@ const addJob = async () => {
   console.log(inputArr);
 };
 
-// Function to add new job
+// Function to add new job and update edited job
 addJobForm.onsubmit = (e) => {
   e.preventDefault();
-  addJob();
-  displayJobs(inputArr, appendHere, jobsFound);
-  updateStatNumbers();
-  resetBtn.click(); //Trigger reset btn when submit btn is triggered
+  if (document.querySelector(".submit-btn").textContent === "Submit") {
+    addJob();
+    displayJobs(inputArr, appendHere, jobsFound);
+    updateStatNumbers();
+    resetBtn.click(); //Trigger reset btn when submit btn is triggered
+  } else {
+    // Modify the addJobForm submit event listener to call the editJob function when the edit button is clicked
+    editJob();
+    updateStatNumbers();
+    if (!position.value || !company.value) {
+      // Update Job Failed
+      notificationDashboard(failure, "Field cannot be empty");
+      return;
+    }
+    resetBtn.click(); //Trigger reset btn when submit btn is triggered
+    document.querySelector(".submit-btn").textContent = "Submit";
+  }
 };
 
 /*========*/
 // All Jobs Display
 const appendHere = document.querySelector(".apply-grid");
 const jobsFound = document.querySelector(".display-all-jobs-con h2 span");
-const deleteJob = document.querySelector(".delete-btn");
-console.log(deleteJob);
-console.log(appendHere);
+
+/*========*/
+// Delete Job
+let currentEdit = "";
+appendHere.onclick = (e) => {
+  if (e.target.classList.contains("delete-btn")) {
+    const jobContainer = e.target.closest(".display-jobs-con");
+    const jobId = jobContainer.dataset.jobid;
+
+    inputArr = inputArr.filter((each) => {
+      return each.id !== jobId;
+    });
+    updateStatNumbers();
+
+    localStorage.setItem("setInputJob", JSON.stringify(inputArr));
+    displayJobs(inputArr, appendHere, jobsFound);
+    // Edit Job
+  } else if (e.target.classList.contains("edit-btn")) {
+    const jobContainer = e.target.closest(".display-jobs-con");
+    const jobId = jobContainer.dataset.jobid;
+    currentEdit = jobId;
+
+    const findEdit = inputArr.find((each) => {
+      return each.id === jobId; // To separate the concentrated container to edit
+    });
+
+    // Stage what is to be edited
+    position.value = findEdit.position;
+    company.value = findEdit.company;
+    jobLocation.value = findEdit.jobLocation;
+    status.value = findEdit.status;
+    jobType.value = findEdit.jobType;
+
+    // Dynamically change the side bar concentration
+    editBtnClicked(activityBar, activityBarContent); // At greater than 1000px
+    if (window.innerWidth <= 1000) {
+      editBtnClicked(popUpBar, activityBarContent);
+    }
+    document.querySelector(".submit-btn").textContent = "Update";
+  }
+};
+
+// Modify the addJob function to update the inputArr with the edited job data
+const editJob = async () => {
+  const updateEdit = inputArr.find((each) => each.id === currentEdit);
+  const getIndex = inputArr.indexOf(updateEdit);
+
+  const editedJob = {
+    id: currentEdit,
+    position: position.value,
+    company: company.value,
+    jobLocation: jobLocation.value,
+    date: new Date().toLocaleString(),
+    status: status.value,
+    jobType: jobType.value,
+  };
+
+  if (!position.value || !company.value) {
+    // Update Job Failed
+    notificationDashboard(failure, "Field cannot be empty");
+    return;
+  }
+  // Update Job Successful
+  notificationDashboard(success, "Job updated successfully");
+
+  inputArr.splice(getIndex, 1, editedJob);
+
+  localStorage.setItem("setInputJob", JSON.stringify(inputArr));
+  displayJobs(inputArr, appendHere, jobsFound);
+};
 
 /*========*/
 // Stat/Job Status

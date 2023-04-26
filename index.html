@@ -3,12 +3,32 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"
+    />
+
     <!-- CSS Section -->
     <link rel="stylesheet" href="./styles/landing-page.css" />
-    <!-- <script src="./all.js"></script> -->
+    <script src="./all.js"></script>
     <title>Jobster</title>
   </head>
   <body>
+    <!-- Login top Notification -->
+    <section class="where-to-apply-noti-display">
+      <section class="notification">
+        <article class="icon-and-text">
+          <div class="success-icon">
+            <i class="fa-solid fa-circle-check"></i>
+          </div>
+          <div class="failure-icon">
+            <i class="fa-solid fa-circle-xmark"></i>
+          </div>
+          <p>some message</p>
+        </article>
+        <article class="success-drain"></article>
+      </section>
+    </section>
     <!-- ======== -->
     <!-- Login and Register Page -->
     <!-- ======== -->
@@ -19,21 +39,23 @@
             <h1><span>J</span> Jobster</h1>
           </nav>
         </header>
-        <div class="landing-page-body">
-          <section class="job-tracking-sect">
-            <p>Job <span>Tracking</span> App</p>
-            <p>
-              Crucifix narwhal street art asymmetrical, humblebrag tote bag
-              pop-up fixie raclette taxidermy craft beer. Brunch bitters synth,
-              VHS crucifix heirloom meggings bicycle rights.
-            </p>
-            <button class="login-reg-btn">Login/Register</button>
-          </section>
-          <img
-            class="landing-page-img"
-            src="https://redux-toolkit-jobster.netlify.app/static/media/main.17b316de742b3a1202078c5ae18c8261.svg"
-            alt="Job Tracking"
-          />
+        <div class="vertically-center-con">
+          <div class="landing-page-body">
+            <section class="job-tracking-sect">
+              <p>Job <span>Tracking</span> App</p>
+              <p>
+                Crucifix narwhal street art asymmetrical, humblebrag tote bag
+                pop-up fixie raclette taxidermy craft beer. Brunch bitters
+                synth, VHS crucifix heirloom meggings bicycle rights.
+              </p>
+              <button class="login-reg-btn">Login/Register</button>
+            </section>
+            <img
+              class="landing-page-img"
+              src="https://redux-toolkit-jobster.netlify.app/static/media/main.17b316de742b3a1202078c5ae18c8261.svg"
+              alt="Job Tracking"
+            />
+          </div>
         </div>
       </article>
 

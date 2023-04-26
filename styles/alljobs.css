@@ -159,7 +159,8 @@
   background-color: #f8d7da;
 }
 .add-pending-bg {
-  background-color: #fcefc7;
+  /* background-color: #fcefc7; */
+  background-color: red;
 }
 .add-interview-bg {
   background-color: #e0e8f9;
@@ -177,10 +178,21 @@
 
 .edit-btn {
   background-color: #b3b1a9;
+  color: #383837;
   margin-right: 10px;
+  transition: ease 0.5s all;
+}
+.edit-btn:hover {
+  background-color: #383837;
+  color: #b3b1a9;
 }
 
 .delete-btn {
   background-color: #f8d7da;
   color: #842029;
+  transition: ease 0.5s all;
+}
+.delete-btn:hover {
+  background-color: #842029;
+  color: #f8d7da;
 }
