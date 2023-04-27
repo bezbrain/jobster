@@ -24,10 +24,6 @@ body {
   left: 50%;
   transform: translate(-50%);
   z-index: 9999;
-  /* animation: bounce; */
-  /* animation-duration: 2s; */
-  /* animation-iteration-count: repeat; */
-  /* animation-iteration-count: 1; */
   box-shadow: 0px 3px 11px 7px rgba(0, 0, 0, 0.1);
 }
 
@@ -177,16 +173,28 @@ body {
 /* ======== */
 .where-to-apply-login-display {
   display: none;
+  /* height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center; */
 }
 
-.centralizing-con {
+.centralizing-con,
+.centralizing-login-con {
   height: 100vh;
+
+  /* margin: auto; */
   display: flex;
   justify-content: center;
   align-items: center;
+  /* border: 2px solid red; */
+}
+.centralizing-con {
+  display: none;
 }
 
-.login-reg-con {
+.login-reg-con,
+.login-con {
   /* max-height: 80vh; */
   width: 320px;
   background-color: #fff;
@@ -196,22 +204,26 @@ body {
   box-shadow: 0px 0px 28px -11px;
 }
 
-.login-reg-con header nav {
+.login-reg-con header nav,
+.login-con header nav {
   width: fit-content;
 }
 
-.login-reg-con nav h1 {
+.login-reg-con nav h1,
+.login-con nav h1 {
   display: flex;
   align-items: center;
   justify-content: space-between;
   color: #4b4523;
 }
-.login-reg-con h1:not(.landing-page h1 span) {
+.login-reg-con h1:not(.landing-page h1 span),
+.login-con h1:not(.landing-page h1 span) {
   letter-spacing: 5px;
   font-weight: 900;
   /* color: red; */
 }
-.login-reg-con h1 span {
+.login-reg-con h1 span,
+.login-con h1 span {
   background-color: #4b4523;
   font-size: 40px;
   color: #fff;
@@ -220,17 +232,20 @@ body {
   border-radius: 10px;
 }
 
-.login-reg-con p:nth-child(2) {
+.login-reg-con p:nth-child(2),
+.login-con p:nth-child(2) {
   font-size: 30px;
   text-align: center;
   margin-block: 1rem;
 }
 
-.login-reg-con form p {
+.login-reg-con form p,
+.login-con form p {
   margin-block: 0.5rem 4px;
 }
 
-.login-reg-con form input {
+.login-reg-con form input,
+.login-con form input {
   width: 100%;
   height: 35px;
   font-size: 15px;
@@ -240,7 +255,8 @@ body {
   padding-left: 12px;
 }
 
-.reg-submit-btn {
+.reg-submit-btn,
+.login-submit-btn {
   width: 100%;
   background-color: #554d20;
   color: #fff;
@@ -250,15 +266,18 @@ body {
   padding-block: 8px;
   border-radius: 5px;
 }
-.reg-submit-btn:hover {
+.reg-submit-btn:hover,
+.login-submit-btn:hover {
   background-color: #4b4315;
 }
 
-.login-reg-con p:last-child {
+.login-reg-con p:last-child,
+.login-con p:last-child {
   text-align: center;
 }
 
-.login-reg-con p:last-child span {
+.login-reg-con p:last-child span,
+.login-con p:last-child span {
   cursor: pointer;
   color: #4b4523;
   /* font-weight: 600; */

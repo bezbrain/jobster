@@ -6,13 +6,18 @@ import {
 } from "./fuctions.js";
 
 const getCurrentUser = JSON.parse(localStorage.getItem("currentUser"));
+// The notification success and failure controller
+let failure = "failure";
+let success = "success";
 
 /*=======*/
 // Logout
 const profile = document.querySelector(".head-btn-con .top-profile span");
 const clickToLogout = document.querySelector(".top-profile");
 const logout = document.querySelector(".logout");
+// const dashboard = document.querySelector(".dashboard-page");
 
+const logoutStyles = window.getComputedStyle(logout);
 clickToLogout.onclick = () => {
   logout.classList.toggle("add-logout-css");
 };
@@ -20,6 +25,14 @@ clickToLogout.onclick = () => {
 logout.onclick = () => {
   console.log("Logout here");
   window.location.replace("../index.html");
+};
+
+document.body.onclick = () => {
+  console.log("Body clicked");
+  if (logoutStyles.display === "block") {
+    // logout.style.display = "none";
+    // logout.classList.remove("add-logout-css");
+  }
 };
 
 /*========*/
@@ -120,6 +133,7 @@ const updateProfileForm = async () => {
   const getUpdateProfile = JSON.parse(localStorage.getItem("setUpdateProfile"));
   lastName.value = getUpdateProfile.lastName;
   location.value = getUpdateProfile.location;
+  notificationDashboard(success, "Profile updated");
 };
 
 // Update the profile when adjustment is made from the profile section
@@ -131,8 +145,6 @@ profileForm.onsubmit = (e) => {
 
 /*========*/
 // Add Job
-let failure = "failure";
-let success = "success";
 const addJob = async () => {
   const inputJob = {
     id: new Date().getTime().toString(),

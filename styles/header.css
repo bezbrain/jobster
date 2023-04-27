@@ -121,6 +121,7 @@ body {
   border-radius: 3px;
   border: none;
   font-size: 18px;
+  z-index: 9999;
 }
 @media screen and (max-width: 1000px) {
   .top-profile {
@@ -152,6 +153,7 @@ body {
   right: 0px;
   top: 40px;
   transition: ease 0.5s all;
+  z-index: 9999;
 }
 .logout:hover {
   color: #e4e2d6;
