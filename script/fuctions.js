@@ -21,9 +21,6 @@ export function displayJobs(jobs, append, jobsLength) {
                   <br><button class="edit-btn">Edit</button><button class="delete-btn">Delete</button>
                 </div>`;
     append.innerHTML += displayAddedJobs;
-
-    // Add an event listener to the edit button
-    // const editBtn = append.querySelector(`[data-jobId=${each.id}] .edit-btn`);
   });
   jobsLength.textContent = jobs.length;
 }

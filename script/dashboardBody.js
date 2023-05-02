@@ -28,7 +28,7 @@ logout.onclick = () => {
 };
 
 document.body.onclick = () => {
-  console.log("Body clicked");
+  // console.log("Body clicked");
   if (logoutStyles.display === "block") {
     // logout.style.display = "none";
     // logout.classList.remove("add-logout-css");
@@ -115,8 +115,8 @@ window.onload = () => {
   // To update the profile when the page reloads
   const getUpdateProfileOnLoad =
     JSON.parse(localStorage.getItem("setUpdateProfile")) || [];
-  lastName.value = getUpdateProfileOnLoad.lastName || "Input Last Name";
-  location.value = getUpdateProfileOnLoad.location || "Input city";
+  lastName.value = getUpdateProfileOnLoad.lastName || "";
+  location.value = getUpdateProfileOnLoad.location || "";
   displayJobs(inputArr, appendHere, jobsFound);
   updateStatNumbers();
 };
@@ -155,18 +155,17 @@ const addJob = async () => {
     status: status.value,
     jobType: jobType.value,
   };
-  if (!position.value || !company.value) {
+  if (!position.value || !company.value || !jobLocation.value) {
     // Add Job Failed
     notificationDashboard(failure, "Field cannot be empty");
     return;
   }
   // Add Job Successful
   notificationDashboard(success, "Job added successfully");
+  resetBtn.click(); //Trigger reset btn when submit btn is triggered
 
-  console.log(inputJob);
   inputArr.push(inputJob);
   localStorage.setItem("setInputJob", JSON.stringify(inputArr));
-  console.log(inputArr);
 };
 
 // Function to add new job and update edited job
@@ -176,12 +175,11 @@ addJobForm.onsubmit = (e) => {
     addJob();
     displayJobs(inputArr, appendHere, jobsFound);
     updateStatNumbers();
-    resetBtn.click(); //Trigger reset btn when submit btn is triggered
   } else {
     // Modify the addJobForm submit event listener to call the editJob function when the edit button is clicked
     editJob();
     updateStatNumbers();
-    if (!position.value || !company.value) {
+    if (!position.value || !company.value || !jobLocation.value) {
       // Update Job Failed
       notificationDashboard(failure, "Field cannot be empty");
       return;
@@ -228,7 +226,7 @@ appendHere.onclick = (e) => {
     status.value = findEdit.status;
     jobType.value = findEdit.jobType;
 
-    // Dynamically change the side bar concentration
+    // Dynamically change the side bar concentration when edit btn is clicked
     editBtnClicked(activityBar, activityBarContent); // At greater than 1000px
     if (window.innerWidth <= 1000) {
       editBtnClicked(popUpBar, activityBarContent);
@@ -237,13 +235,15 @@ appendHere.onclick = (e) => {
   }
 };
 
-// Modify the addJob function to update the inputArr with the edited job data
+// Modify the addJob function to update the inputArr with the edited job data when the update btn is clicked
 const editJob = async () => {
-  const updateEdit = inputArr.find((each) => each.id === currentEdit);
-  const getIndex = inputArr.indexOf(updateEdit);
+  const updateEdit = inputArr.find((each) => each.id === currentEdit); // To separate the concentrated container to edit
+  console.log(updateEdit);
+  const getIndex = inputArr.indexOf(updateEdit); //To get the index of the job to edit
+  console.log(getIndex);
 
   const editedJob = {
-    id: currentEdit,
+    id: currentEdit, //To make sure that the edited job maintains the same id
     position: position.value,
     company: company.value,
     jobLocation: jobLocation.value,
@@ -260,7 +260,7 @@ const editJob = async () => {
   // Update Job Successful
   notificationDashboard(success, "Job updated successfully");
 
-  inputArr.splice(getIndex, 1, editedJob);
+  inputArr.splice(getIndex, 1, editedJob); //To remove the object to be edited and return all objects including the one edited
 
   localStorage.setItem("setInputJob", JSON.stringify(inputArr));
   displayJobs(inputArr, appendHere, jobsFound);
@@ -291,3 +291,17 @@ function updateStatNumbers() {
   interviewSch.textContent = newInterview.length;
   jobDeclined.textContent = newDecline.length;
 }
+
+/*========*/
+// Search Section
+const searchInput = document.querySelector(".search-con input");
+
+searchInput.onkeyup = () => {
+  const newInputArr = inputArr.filter((each) => {
+    return (
+      each.position.toLowerCase().includes(searchInput.value.toLowerCase()) ||
+      each.company.toLowerCase().includes(searchInput.value.toLowerCase())
+    );
+  });
+  displayJobs(newInputArr, appendHere, jobsFound);
+};
