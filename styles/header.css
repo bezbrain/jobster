@@ -214,7 +214,7 @@ body {
 }
 
 .popup-nav {
-  width: 80%;
+  width: 50%;
   height: fit-content;
   background-color: #fff;
   border-radius: 10px;
@@ -224,11 +224,22 @@ body {
   align-items: center;
   padding-block: 40px;
 }
+@media screen and (max-height: 730px) {
+  .popup-nav {
+    padding-block: 3vh;
+  }
+}
+@media screen and (max-width: 600px) {
+  .popup-nav {
+    width: 80%;
+  }
+}
 
 .popup-nav .close-icon {
   font-size: 2.2em;
   color: rgb(189, 16, 16);
   /* margin: 15px 30px; */
+  margin-block: 1vh;
   transition: ease 1s all;
   width: fit-content;
 }
@@ -253,6 +264,12 @@ body {
   display: flex;
   align-items: center;
 }
+@media screen and (max-height: 730px) {
+  .popup-nav section li {
+    margin-top: 3vh;
+  }
+}
+
 .popup-nav section li:hover {
   background-color: #817c5a;
   padding: 10px 15px;
